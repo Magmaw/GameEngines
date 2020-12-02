@@ -3,13 +3,13 @@
 for (var i = 0; i < num_segments - 1; i++)
 {
 	draw_line_width_color(rope_segments[i].x_now, rope_segments[i].y_now, rope_segments[i + 1].x_now, 
-	rope_segments[i + 1].y_now, 4, c_white, c_white);
+	rope_segments[i + 1].y_now, rope_width, c_white, c_white);
 }
 
 endpoint_angle = point_direction(rope_segments[0].x_now, rope_segments[0].y_now, rope_segments[num_segments - 1].x_now, rope_segments[num_segments - 1].y_now);
 
 
-draw_circle(rope_segments[0].x_now, rope_segments[0].y_now, rope_length, true);
+////draw_circle(rope_segments[0].x_now, rope_segments[0].y_now, rope_length, true);
 //arctan2()
 //draw_line(rope_segments[0].x_now, rope_segments[0].y_now, rope_segments[num_segments - 1].x_now, rope_segments[num_segments - 1].y_now);
 

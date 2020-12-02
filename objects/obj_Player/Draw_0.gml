@@ -1,7 +1,8 @@
 
 viewport_pos = y / room_height * 0.5 + x / room_width * 0.5;
 //viewport_pos = y / room_height;
-viewport_color = merge_color(top_color, bottom_color, viewport_pos);
+//viewport_color = merge_color(top_color, bottom_color, viewport_pos);
+viewport_color = c_white;
 
 draw_circle_color(x, y - 40, 10, viewport_color, viewport_color, false);
 draw_ellipse_color(x - 5, y - 10, x + 5, y - 30, viewport_color, viewport_color, false);

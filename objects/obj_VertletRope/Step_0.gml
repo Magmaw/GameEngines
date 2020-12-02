@@ -1,10 +1,31 @@
+if (mouse_check_button_pressed(mb_left))
+{
+	if (hook_held_by_player)
+	{
+		hook_held_by_player = false;
+		
+	}
+}
+
+if (!hook_held_by_player)
+{
+	speed_due_to_gravity -= gravity_speed;
+	if (speed_due_to_gravity > terminal_velocity)
+	{
+		speed_due_to_gravity = terminal_velocity;
+	}
+	
+	y += speed_due_to_gravity;
+}
+
+
 player = instance_nearest(x, y, obj_Player);
 
 var start_pos_x = player.x;
 var start_pos_y = player.y;
 
-var end_pos_x = mouse_x;
-var end_pos_y = mouse_y;
+var end_pos_x = x;
+var end_pos_y = y;
 
 for (var i = 1; i < num_segments; i++)
 {
