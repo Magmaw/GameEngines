@@ -24,14 +24,14 @@ else if (y < 0)
 	y = 0;
 }
 
-if (keyboard_check(ord("W")))
-{
-	y -= moveSpeed;
-}
-if (keyboard_check(ord("S")))
-{
-	y += moveSpeed;
-}
+//if (keyboard_check(ord("W")))
+//{
+//	y -= moveSpeed;
+//}
+//if (keyboard_check(ord("S")))
+//{
+//	y += moveSpeed;
+//}
 
 if (keyboard_check(ord("D")))
 {
@@ -44,12 +44,14 @@ if (keyboard_check(ord("A")))
 
 //Collision check
 instance = collision_rectangle(x - 2, y, x + 2, y + 1, obj_Platform, true, false);
+var jumped = false;
 if (instance != noone)
 {
 	//Jump
 	if (keyboard_check_pressed(vk_space))
 	{
 		speed_due_to_gravity = -jump_speed;
+		jumped = true;
 	}
 	//Reset velocity
 	else
@@ -57,4 +59,16 @@ if (instance != noone)
 		y = yprevious;
 		speed_due_to_gravity = 0;
 	}
+}
+
+rope = instance_nearest(x, y, obj_VertletRope);
+
+if (!jumped && keyboard_check_pressed(vk_space) && !rope.hook_held_by_player)
+{
+	speed_due_to_gravity = -jump_speed;
+	
+	rope.speed_due_to_gravity = 0;
+	rope.velocity_x = 0;
+	rope.hook_held_by_player = true;
+	rope.hook_attached = false;
 }

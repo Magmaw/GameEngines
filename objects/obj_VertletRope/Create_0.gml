@@ -1,6 +1,6 @@
 rope_segments = [];
 
-rope_length = 500;
+rope_length = 200;
 num_segments = 16;
 
 rope_gravity = -2;
@@ -22,3 +22,10 @@ for (var i = 0; i < num_segments; i++)
 
 hook_held_by_player = true;
 hook_attached = false;
+
+speed_due_to_gravity = 0.0;
+gravity_speed = -0.2;
+velocity_x = 0.0;
+velocity_x_decay = 0.985;
+throw_speed = 16;
+terminal_velocity = 10;

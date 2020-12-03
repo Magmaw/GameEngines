@@ -1,13 +1,29 @@
+player = instance_nearest(x, y, obj_Player);
+
 if (mouse_check_button_pressed(mb_left))
 {
 	if (hook_held_by_player)
 	{
 		hook_held_by_player = false;
-		
+		throw_direction = normalize(mouse_x - x, mouse_y - y);
+		speed_due_to_gravity = throw_speed * throw_direction.y;
+		velocity_x = throw_speed * throw_direction.x;
+	}
+	else
+	{
+		speed_due_to_gravity = 0;
+		velocity_x = 0;
+		hook_held_by_player = true;
+		hook_attached = false;
 	}
 }
 
-if (!hook_held_by_player)
+if (hook_held_by_player)
+{
+	x = player.x;
+	y = player.y;
+}
+else if (!hook_attached)
 {
 	speed_due_to_gravity -= gravity_speed;
 	if (speed_due_to_gravity > terminal_velocity)
@@ -15,11 +31,16 @@ if (!hook_held_by_player)
 		speed_due_to_gravity = terminal_velocity;
 	}
 	
+	velocity_x *= velocity_x_decay;
+	if (abs(velocity_x) < 0.05)
+	{
+		velocity_x = 0.0;
+	}
+	
 	y += speed_due_to_gravity;
+	x += velocity_x;
+	
 }
-
-
-player = instance_nearest(x, y, obj_Player);
 
 var start_pos_x = player.x;
 var start_pos_y = player.y;
@@ -113,4 +134,13 @@ if (distance_from_hook > rope_length)
 	draw_circle(new_pos_x, new_pos_y, 5, false);
 	player.x = new_pos_x;
 	player.y = new_pos_y;
+}
+
+
+
+
+instance = collision_rectangle(x - 2, y, x + 2, y + 1, obj_Platform, true, false);
+if (!hook_held_by_player && instance != noone && instance != obj_Player)
+{
+	hook_attached = true;
 }

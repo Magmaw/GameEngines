@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_VertletRope",
+    "path": "sprites/spr_VertletRope/spr_VertletRope.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
