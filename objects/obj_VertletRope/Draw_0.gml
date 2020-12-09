@@ -6,6 +6,8 @@ for (var i = 0; i < num_segments - 1; i++)
 	rope_segments[i + 1].y_now, rope_width, c_white, c_white);
 }
 
+draw_self();
+
 ///endpoint_angle = point_direction(rope_segments[0].x_now, rope_segments[0].y_now, rope_segments[num_segments - 1].x_now, rope_segments[num_segments - 1].y_now);
 
 

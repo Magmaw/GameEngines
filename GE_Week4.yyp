@@ -1,11 +1,19 @@
 {
   "resources": [
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
+    {"id":{"name":"MainMenu","path":"rooms/MainMenu/MainMenu.yy",},"order":3,},
+    {"id":{"name":"WinScreen","path":"rooms/WinScreen/WinScreen.yy",},"order":4,},
     {"id":{"name":"magnitude","path":"scripts/magnitude/magnitude.yy",},"order":1,},
+    {"id":{"name":"BigJohnNormal","path":"fonts/BigJohnNormal/BigJohnNormal.yy",},"order":0,},
     {"id":{"name":"spr_VertletRope","path":"sprites/spr_VertletRope/spr_VertletRope.yy",},"order":1,},
     {"id":{"name":"create_rope_segment","path":"scripts/create_rope_segment/create_rope_segment.yy",},"order":0,},
     {"id":{"name":"obj_Platform","path":"objects/obj_Platform/obj_Platform.yy",},"order":2,},
+    {"id":{"name":"obj_MainMenuController","path":"objects/obj_MainMenuController/obj_MainMenuController.yy",},"order":3,},
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":0,},
+    {"id":{"name":"obj_WinScreenController","path":"objects/obj_WinScreenController/obj_WinScreenController.yy",},"order":4,},
     {"id":{"name":"spr_Platform","path":"sprites/spr_Platform/spr_Platform.yy",},"order":0,},
+    {"id":{"name":"BigJohnBold","path":"fonts/BigJohnBold/BigJohnBold.yy",},"order":1,},
+    {"id":{"name":"Room3","path":"rooms/Room3/Room3.yy",},"order":2,},
     {"id":{"name":"obj_VertletRope","path":"objects/obj_VertletRope/obj_VertletRope.yy",},"order":1,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
@@ -29,7 +37,11 @@
     "children": [],
   },
   "RoomOrder": [
+    {"name":"MainMenu","path":"rooms/MainMenu/MainMenu.yy",},
     {"name":"Room1","path":"rooms/Room1/Room1.yy",},
+    {"name":"Room2","path":"rooms/Room2/Room2.yy",},
+    {"name":"Room3","path":"rooms/Room3/Room3.yy",},
+    {"name":"WinScreen","path":"rooms/WinScreen/WinScreen.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

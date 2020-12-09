@@ -20,8 +20,8 @@ if (mouse_check_button_pressed(mb_left))
 
 if (hook_held_by_player)
 {
-	x = player.x;
-	y = player.y;
+	x = player.hand_x;
+	y = player.hand_y;
 }
 else if (!hook_attached)
 {
@@ -42,8 +42,8 @@ else if (!hook_attached)
 	
 }
 
-var start_pos_x = player.x;
-var start_pos_y = player.y;
+var start_pos_x = player.hand_x;
+var start_pos_y = player.hand_y;
 
 var end_pos_x = x;
 var end_pos_y = y;
@@ -117,23 +117,32 @@ for (var k = 0; k < num_constraint_sims; k++)
 	}
 }
 
-current_vel_x = player.x - player.xprevious;
-current_vel_y = player.y - player.yprevious;
-extrapolated_pos_x = player.x + current_vel_x;
-extrapolated_pos_y = player.y + current_vel_y;
 
-distance_from_hook = magnitude(rope_segments[num_segments - 1].x_now - extrapolated_pos_x, rope_segments[num_segments - 1].y_now - extrapolated_pos_y);
-
-if (distance_from_hook > rope_length)
+if (!hook_held_by_player)
 {
+	rope_vel_x *= 0.6;
+	rope_vel_y *= 0.6;
 	
-	test_pos = normalize(extrapolated_pos_x - rope_segments[num_segments - 1].x_now, extrapolated_pos_y - rope_segments[num_segments - 1].y_now);
-	new_pos_x = test_pos.x * rope_length + rope_segments[num_segments - 1].x_now;
-	new_pos_y = test_pos.y * rope_length + rope_segments[num_segments - 1].y_now;
+	current_vel_x = player.x - player.xprevious;
+	current_vel_y = player.y - player.yprevious;
+	extrapolated_pos_x = player.x + current_vel_x + rope_vel_x * 0.99;
+	extrapolated_pos_y = player.y + current_vel_y + rope_vel_y * 0.99;
 	
-	draw_circle(new_pos_x, new_pos_y, 5, false);
-	player.x = new_pos_x;
-	player.y = new_pos_y;
+	distance_from_hook = magnitude(rope_segments[num_segments - 1].x_now - extrapolated_pos_x, rope_segments[num_segments - 1].y_now - extrapolated_pos_y);
+	
+	if (distance_from_hook > rope_length_invis)
+	{
+		test_pos = normalize(extrapolated_pos_x - rope_segments[num_segments - 1].x_now, extrapolated_pos_y - rope_segments[num_segments - 1].y_now);
+		new_pos_x = test_pos.x * rope_length_invis + rope_segments[num_segments - 1].x_now;
+		new_pos_y = test_pos.y * rope_length_invis + rope_segments[num_segments - 1].y_now;
+		
+		rope_vel_x += (new_pos_x - player.x) * 0.7;
+		rope_vel_y += (new_pos_y - player.y) * 0.7;
+		
+		//draw_circle(new_pos_x, new_pos_y, 5, false);
+		player.x = new_pos_x;
+		player.y = new_pos_y;
+	}
 }
 
 

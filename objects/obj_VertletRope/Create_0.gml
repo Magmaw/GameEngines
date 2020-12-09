@@ -1,10 +1,11 @@
 rope_segments = [];
 
 rope_length = 200;
+rope_length_invis = 260;
 num_segments = 16;
 
 rope_gravity = -2;
-num_constraint_sims = 20;
+num_constraint_sims = 18;
 
 segment_length = rope_length / num_segments;
 //segment_length = 12;
@@ -29,3 +30,9 @@ velocity_x = 0.0;
 velocity_x_decay = 0.985;
 throw_speed = 16;
 terminal_velocity = 10;
+
+rope_vel_x = 0;
+rope_vel_y = 0;
+
+rope_vel_x = 0;
+rope_vel_y = 0;

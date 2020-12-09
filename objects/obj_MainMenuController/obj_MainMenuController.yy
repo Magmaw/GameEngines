@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_Platform",
-    "path": "sprites/spr_Platform/spr_Platform.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -20,17 +17,18 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
-  "properties": [
-    {"varType":3,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"finish_plate","tags":[],"resourceType":"GMObjectProperty",},
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_MainMenuController","path":"objects/obj_MainMenuController/obj_MainMenuController.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":13,"eventType":9,"collisionObjectId":null,"parent":{"name":"obj_MainMenuController","path":"objects/obj_MainMenuController/obj_MainMenuController.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
+  "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Objects",
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_Platform",
+  "name": "obj_MainMenuController",
   "tags": [],
   "resourceType": "GMObject",
 }
